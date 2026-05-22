@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/MLProject/MLProject/mlruns/0/947d177c1e244e4282ee07d4a3670fd3/artifacts
+end_time: 1779447190088
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 947d177c1e244e4282ee07d4a3670fd3
+run_name: bald-newt-240
+run_uuid: 947d177c1e244e4282ee07d4a3670fd3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779447181961
+status: 3
+tags: []
+user_id: runner
