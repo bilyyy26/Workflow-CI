@@ -36,7 +36,7 @@ def main():
     X_test  = test[feature_cols];  y_test  = test['target']
     labels  = ['malignant', 'benign']
 
-    mlflow.set_experiment("breast-cancer-ci")
+    
 
     
     model = RandomForestClassifier(
