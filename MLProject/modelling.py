@@ -29,8 +29,8 @@ def parse_args():
 def main():
     args = parse_args()
 
-train = pd.read_csv("../breast_cancer_preprocessing/breast_cancer_train.csv")
-test = pd.read_csv("../breast_cancer_preprocessing/breast_cancer_test.csv")
+    train = pd.read_csv("../breast_cancer_preprocessing/breast_cancer_train.csv")
+    test = pd.read_csv("../breast_cancer_preprocessing/breast_cancer_test.csv")
     feature_cols = [c for c in train.columns if c != 'target']
     X_train = train[feature_cols]; y_train = train['target']
     X_test  = test[feature_cols];  y_test  = test['target']
