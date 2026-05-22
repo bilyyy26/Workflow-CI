@@ -24,7 +24,7 @@ jobs:
           pip install mlflow==2.19.0 scikit-learn pandas numpy matplotlib dagshub
 
       - name: Run preprocessing
-        run: python automate_Bily.py
+        run: python MLProject/automate_Bily.py
 
       - name: Run MLflow Project
         env:
