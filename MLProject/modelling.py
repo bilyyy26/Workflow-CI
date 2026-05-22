@@ -38,7 +38,7 @@ def main():
 
     mlflow.set_experiment("breast-cancer-ci")
 
-    with mlflow.start_run():
+    with mlflow.start_run(nested=True):
         model = RandomForestClassifier(
             n_estimators=args.n_estimators,
             max_depth=args.max_depth,
