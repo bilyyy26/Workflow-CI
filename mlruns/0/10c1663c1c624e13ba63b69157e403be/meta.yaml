@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/MLProject/MLProject/mlruns/0/10c1663c1c624e13ba63b69157e403be/artifacts
+end_time: 1779445920169
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 10c1663c1c624e13ba63b69157e403be
+run_name: zealous-stoat-464
+run_uuid: 10c1663c1c624e13ba63b69157e403be
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779445912028
+status: 3
+tags: []
+user_id: runner
