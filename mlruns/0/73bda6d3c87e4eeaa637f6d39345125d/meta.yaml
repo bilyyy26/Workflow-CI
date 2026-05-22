@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/MLProject/MLProject/mlruns/0/73bda6d3c87e4eeaa637f6d39345125d/artifacts
+end_time: 1779446497160
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 73bda6d3c87e4eeaa637f6d39345125d
+run_name: gifted-elk-335
+run_uuid: 73bda6d3c87e4eeaa637f6d39345125d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779446488528
+status: 3
+tags: []
+user_id: runner
