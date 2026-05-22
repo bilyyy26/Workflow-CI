@@ -38,46 +38,46 @@ def main():
 
     mlflow.set_experiment("breast-cancer-ci")
 
-    with mlflow.start_run(run_id=os.environ.get("MLFLOW_RUN_ID")):
-        model = RandomForestClassifier(
-            n_estimators=args.n_estimators,
-            max_depth=args.max_depth,
-            random_state=args.random_state
-        )
-        model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
+    
+    model = RandomForestClassifier(
+        n_estimators=args.n_estimators,
+        max_depth=args.max_depth,
+        random_state=args.random_state
+    )
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
 
-        acc  = accuracy_score(y_test, y_pred)
-        prec = precision_score(y_test, y_pred)
-        rec  = recall_score(y_test, y_pred)
-        f1   = f1_score(y_test, y_pred)
+    acc  = accuracy_score(y_test, y_pred)
+    prec = precision_score(y_test, y_pred)
+    rec  = recall_score(y_test, y_pred)
+    f1   = f1_score(y_test, y_pred)
 
-        mlflow.log_param("n_estimators", args.n_estimators)
-        mlflow.log_param("max_depth",    args.max_depth)
-        mlflow.log_param("random_state", args.random_state)
-        mlflow.log_metric("accuracy",  acc)
-        mlflow.log_metric("precision", prec)
-        mlflow.log_metric("recall",    rec)
-        mlflow.log_metric("f1_score",  f1)
+    mlflow.log_param("n_estimators", args.n_estimators)
+    mlflow.log_param("max_depth",    args.max_depth)
+    mlflow.log_param("random_state", args.random_state)
+    mlflow.log_metric("accuracy",  acc)
+    mlflow.log_metric("precision", prec)
+    mlflow.log_metric("recall",    rec)
+    mlflow.log_metric("f1_score",  f1)
 
-        # Confusion Matrix
-        cm = confusion_matrix(y_test, y_pred)
-        disp = ConfusionMatrixDisplay(cm, display_labels=labels)
-        fig, ax = plt.subplots(figsize=(6, 5))
-        disp.plot(ax=ax, cmap='Blues')
-        plt.savefig("confusion_matrix.png", dpi=120); plt.close()
-        mlflow.log_artifact("confusion_matrix.png", "plots")
+    # Confusion Matrix
+    cm = confusion_matrix(y_test, y_pred)
+    disp = ConfusionMatrixDisplay(cm, display_labels=labels)
+    fig, ax = plt.subplots(figsize=(6, 5))
+    disp.plot(ax=ax, cmap='Blues')
+    plt.savefig("confusion_matrix.png", dpi=120); plt.close()
+    mlflow.log_artifact("confusion_matrix.png", "plots")
 
-        # Classification Report
-        report = classification_report(y_test, y_pred, target_names=labels, output_dict=True)
-        with open("classification_report.json", "w") as f:
-            json.dump(report, f, indent=4)
-        mlflow.log_artifact("classification_report.json", "reports")
+    # Classification Report
+    report = classification_report(y_test, y_pred, target_names=labels, output_dict=True)
+    with open("classification_report.json", "w") as f:
+        json.dump(report, f, indent=4)
+    mlflow.log_artifact("classification_report.json", "reports")
 
-        mlflow.sklearn.log_model(model, artifact_path="model")
+    mlflow.sklearn.log_model(model, artifact_path="model")
 
-        print(f"Accuracy: {acc:.4f} | F1: {f1:.4f}")
-        print("✅ Training selesai!")
+    print(f"Accuracy: {acc:.4f} | F1: {f1:.4f}")
+    print("✅ Training selesai!")
 
 
 if __name__ == "__main__":
