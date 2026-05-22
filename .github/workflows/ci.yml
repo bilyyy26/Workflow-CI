@@ -63,8 +63,13 @@ jobs:
 
       - name: Build & Push Docker image
         run: |
-          mlflow models build-docker \
-            -m "mlruns/0/$(ls mlruns/0/ | grep -v meta | head -1)/artifacts/model" \
-            -n ${{ secrets.DOCKERHUB_USERNAME }}/breast-cancer-classifier:latest \
-            --enable-mlserver
+          cat > Dockerfile << 'EOF'
+          FROM python:3.12-slim
+          WORKDIR /app
+          COPY MLProject/ .
+          RUN pip install mlflow==2.19.0 scikit-learn pandas numpy
+          EXPOSE 8080
+          CMD ["python", "modelling.py"]
+          EOF
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/breast-cancer-classifier:latest .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/breast-cancer-classifier:latest
