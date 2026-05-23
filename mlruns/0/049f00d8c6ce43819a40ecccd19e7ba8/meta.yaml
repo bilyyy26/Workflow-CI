@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/MLProject/MLProject/mlruns/0/049f00d8c6ce43819a40ecccd19e7ba8/artifacts
+end_time: 1779495180122
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 049f00d8c6ce43819a40ecccd19e7ba8
+run_name: adventurous-carp-758
+run_uuid: 049f00d8c6ce43819a40ecccd19e7ba8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779495170915
+status: 3
+tags: []
+user_id: runner
